@@ -75,6 +75,8 @@
     <Content Include="Student.aspx" />
     <Content Include="Teacher.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Register.aspx" />
+    <Content Include="admin.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -115,6 +117,20 @@
     </Compile>
     <Compile Include="Teacher.aspx.designer.cs">
       <DependentUpon>Teacher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
