@@ -90,17 +90,6 @@
                 </a>
             </div><div style="margin-top:20px; font-size:14px;">
     <span style="color:#666;"></span>
-    <a href="admin.aspx"
-       style="
-            color:#4A90E2;
-            text-decoration:none;
-            font-weight:600;
-            margin-left:5px;
-       "
-       onmouseover="this.style.textDecoration='underline'"
-       onmouseout="this.style.textDecoration='none'">
-        Status
-    </a>
 
 
         </div>

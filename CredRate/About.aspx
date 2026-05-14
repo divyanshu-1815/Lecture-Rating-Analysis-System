@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title>About Lecture Rating Analysis System</title>
+    <title>About Lecture Rating And Analysis System</title>
 
     <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
@@ -78,7 +78,7 @@
 
         <!-- HEADER SECTION -->
         <div class="header-section">
-            <h1 class="header-title">About Lecture Rating Analysis System</h1>
+            <h1 class="header-title">About Lecture Rating And Analysis System</h1>
            <!-- <p class="header-subtitle">Weightage Based Rating System</p>-->
         </div>
 
@@ -120,10 +120,8 @@
 
                     <ul style="font-size:18px; margin-top:10px; line-height:30px;">
                         <li>Divyanshu Pandey</li>
-                        <li>Deepa Kushwaha</li>
                         <li>Shiv Pratap Singh</li>
                         <li>Neha Sharma</li>
-                        <li>Naveen Yadav</li>
                     </ul>
                 </div>
 
@@ -131,7 +129,7 @@
         </div>
 
         <div class="footer">
-            © 2025 Lecture Rating Analysis System | Designed for Academic Evaluation
+            © 2025 Lecture Rating And Analysis System | Designed for Academic Evaluation
         </div>
 
     </form>

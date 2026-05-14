@@ -90,6 +90,16 @@
     <div class="container">
 
         <h2>User Registration</h2>
+        
+        <label>Role</label>
+        <asp:DropDownList ID="ddlRole" runat="server"
+            AutoPostBack="true"
+            CssClass="input-box"
+            OnSelectedIndexChanged="ddlRole_SelectedIndexChanged">
+            <asp:ListItem Text="-- Select Role --" />
+            <asp:ListItem Text="Student" />
+            <asp:ListItem Text="Teacher" />
+        </asp:DropDownList>
 
         <label>Username</label>
         <asp:TextBox ID="txtUsername" runat="server" CssClass="input-box" />
@@ -102,15 +112,6 @@
         <asp:TextBox ID="txtConfirmPassword" runat="server"
             TextMode="Password" CssClass="input-box" />
 
-        <label>Role</label>
-        <asp:DropDownList ID="ddlRole" runat="server"
-            AutoPostBack="true"
-            CssClass="input-box"
-            OnSelectedIndexChanged="ddlRole_SelectedIndexChanged">
-            <asp:ListItem Text="-- Select Role --" />
-            <asp:ListItem Text="Student" />
-            <asp:ListItem Text="Teacher" />
-        </asp:DropDownList>
 
         <!-- STUDENT ONLY -->
         <asp:Panel ID="pnlStudent" runat="server" CssClass="student-panel">
@@ -127,8 +128,23 @@
             Text="Register"
             CssClass="btn-register"
             OnClick="btnRegister_Click" />
+        <asp:Button ID="btnHome" runat="server"
+    Text="Go to Login"
+    OnClick="btnHome_Click"
+    style="
+        width:100%;
+        background:#6c757d;
+        color:white;
+        padding:10px;
+        border:none;
+        border-radius:6px;
+        font-size:14px;
+        cursor:pointer;
+        margin-top:10px;
+    " />
 
         <asp:Label ID="lblMsg" runat="server" CssClass="message" />
+
 
     </div>
 

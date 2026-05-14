@@ -39,7 +39,7 @@ namespace CreditRatingSystem
             {
                 string query = @"
 SELECT 
-    T.TopicName,
+    T.TopicName,T.TopicId,
 
     CAST(
         SUM(
@@ -88,7 +88,7 @@ LEFT JOIN Users U
     AND U.Role = 'Student'
 WHERE 
     T.SubjectId = @sid
-GROUP BY T.TopicName";
+GROUP BY T.TopicName,T.TopicId";
 
 
 
@@ -122,6 +122,46 @@ GROUP BY T.TopicName";
                     e.Row.Cells[2].ForeColor = System.Drawing.Color.Green;
                     e.Row.Cells[2].Font.Bold = true;
                 }
+            }
+        }
+        protected void gvRatings_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Reschedule")
+            {
+                string topicName = e.CommandArgument.ToString();
+
+                // Check Session
+                if (Session["UserId"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                    return;
+                }
+
+                int teacherId = Convert.ToInt32(Session["UserId"]);
+
+                using (SqlConnection con = new SqlConnection(
+                    ConfigurationManager.ConnectionStrings["db"].ConnectionString))
+                {
+                    string query = @"INSERT INTO RescheduledTopics
+                            (TopicName, SubjectId, TeacherId)
+                            VALUES (@topic, @subject, @teacher)";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    cmd.Parameters.AddWithValue("@topic", topicName);
+                    cmd.Parameters.AddWithValue("@subject", ddlSubjects.SelectedValue);
+                    cmd.Parameters.AddWithValue("@teacher", teacherId);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                ClientScript.RegisterStartupScript(
+                    this.GetType(),
+                    "msg",
+                    "alert('Topic Rescheduled Successfully');",
+                    true);
             }
         }
     }

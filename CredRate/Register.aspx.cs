@@ -88,5 +88,9 @@ namespace Lecture_Rating_Analysis_System
                 lblMsg.ForeColor = System.Drawing.Color.Green;
             }
         }
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

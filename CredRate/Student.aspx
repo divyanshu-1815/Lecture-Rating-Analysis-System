@@ -18,6 +18,32 @@
             box-shadow: 0 0 18px rgba(0,0,0,0.15);
             text-align: center;
         ">
+            <!-- WELCOME USER -->
+<asp:Label ID="lblWelcome" runat="server"
+    style="
+        display:block;
+        font-size:18px;
+        font-weight:bold;
+        color:#333;
+        margin-bottom:15px;
+    ">
+</asp:Label>
+            <div style="background:#f5f9ff; padding:15px; border-radius:8px; margin-bottom:20px; border:1px solid #d0e3ff;">
+
+    <h3 style="color:#003366; margin-top:0;">Student Information</h3>
+
+    <asp:Label ID="lblStudentName" runat="server" Font-Bold="true"></asp:Label>
+    <br /><br />
+
+    <span style="font-weight:bold;">CPI:</span>
+    <asp:Label ID="lblCPI" runat="server"></asp:Label>
+
+    <br /><br />
+
+    <span style="font-weight:bold;">Attendance:</span>
+    <asp:Label ID="lblAttendance" runat="server"></asp:Label>
+
+</div>
 
             <h2 style="color:#333; margin-bottom:20px;">
                 Rate Topics
@@ -50,19 +76,32 @@
                 <Columns>
                     <asp:BoundField DataField="TopicName" HeaderText="Topic" />
 
-                    <asp:TemplateField HeaderText="Rating (1–5)">
-                        <ItemTemplate>
-                            <asp:TextBox ID="txtRating" runat="server"
-                                style="
-                                    width: 45px;
-                                    padding: 5px;
-                                    border: 1px solid #ccc;
-                                    border-radius: 4px;
-                                    text-align:center;
-                                ">
-                            </asp:TextBox>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                   <asp:TemplateField HeaderText="Rating (1–5)">
+    <ItemTemplate>
+        <asp:TextBox ID="txtRating" runat="server"
+            TextMode="Number"
+            Min="1" Max="5"
+            style="
+                width: 45px;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                text-align:center;
+            ">
+        </asp:TextBox>
+
+        <!-- VALIDATOR -->
+        <asp:RangeValidator ID="rvRating" runat="server"
+            ControlToValidate="txtRating"
+            MinimumValue="1"
+            MaximumValue="5"
+            Type="Integer"
+            ErrorMessage="1–5 only"
+            ForeColor="Red"
+            Display="Dynamic">
+        </asp:RangeValidator>
+    </ItemTemplate>
+</asp:TemplateField>
                 </Columns>
 
                 <HeaderStyle BackColor="Blue" ForeColor="white" Font-Bold="true" />
@@ -94,6 +133,9 @@
                 ForeColor="blue"
                 style="font-size:14px; margin-top:10px; display:block;">
             </asp:Label>
+            <asp:Button ID="btnLogout" runat="server" Text="Logout"
+    OnClick="btnLogout_Click"
+    style="background:red; color:white; padding:8px; border:none; border-radius:5px;" />
 
         </div>
 

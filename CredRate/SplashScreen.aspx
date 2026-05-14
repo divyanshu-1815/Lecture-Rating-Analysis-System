@@ -73,7 +73,7 @@
 
                 <!-- LEFT SIDE -->
                 <div class="col-md-6 left-section">
-                    <h1 class="main-title">Lecture Rating Analysis System</h1>
+                    <h1 class="main-title">Lecture Rating And Analysis System</h1>
                     <!--<h6 class="sub-title">(Weightage Based Rating System)</h6>-->
 
                     <p class="desc">

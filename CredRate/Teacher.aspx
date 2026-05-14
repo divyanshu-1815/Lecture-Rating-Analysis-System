@@ -38,23 +38,51 @@
         </asp:DropDownList>
 
         <asp:GridView ID="gvRatings" runat="server"
-            AutoGenerateColumns="false"
-            OnRowDataBound="gvRatings_RowDataBound"
-            GridLines="None"
-            CellPadding="10"
-            style="width:100%; font-size:15px;">
+    AutoGenerateColumns="false"
+    OnRowDataBound="gvRatings_RowDataBound"
+    OnRowCommand="gvRatings_RowCommand"
+    GridLines="None"
+    CellPadding="10"
+    style="width:100%; font-size:15px;">
 
-            <Columns>
-                <asp:BoundField DataField="TopicName" HeaderText="Topic Name" />
-                <asp:BoundField DataField="WeightedRating" HeaderText="Average Rating" DataFormatString="{0:F2}" />
-                <asp:BoundField DataField="Status" HeaderText="Status" />
-            </Columns>
+    <Columns>
 
-            <HeaderStyle BackColor="#4A90E2" ForeColor="White" />
-            <RowStyle BackColor="#ffffff" />
-            <AlternatingRowStyle BackColor="#f2f6fc" />
+        <asp:BoundField DataField="TopicName" HeaderText="Topic Name" />
 
-        </asp:GridView>
+        <asp:BoundField DataField="WeightedRating"
+            HeaderText="Average Rating"
+            DataFormatString="{0:F2}" />
+
+        <asp:BoundField DataField="Status" HeaderText="Status" />
+
+        <asp:TemplateField HeaderText="Action">
+            <ItemTemplate>
+
+                <asp:Button ID="btnReschedule"
+                    runat="server"
+                    Text="Reschedule"
+                    CommandName="Reschedule"
+                    CommandArgument='<%# Eval("TopicName") %>'
+                    Visible='<%# Eval("Status").ToString().Contains("reschedule") %>'
+                    style="
+                        background:#dc3545;
+                        color:white;
+                        border:none;
+                        padding:6px 12px;
+                        border-radius:5px;
+                        cursor:pointer;
+                    " />
+
+            </ItemTemplate>
+        </asp:TemplateField>
+
+    </Columns>
+
+    <HeaderStyle BackColor="#4A90E2" ForeColor="White" />
+    <RowStyle BackColor="#ffffff" />
+    <AlternatingRowStyle BackColor="#f2f6fc" />
+
+</asp:GridView>
 
     </div>
 
